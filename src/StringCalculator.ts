@@ -3,7 +3,16 @@ export const add = (numbers: string): number => {
         return 0;
     }
 
-    return numbers
-    .split(/,|\n/)
-    .reduce((sum: number, n: string) => sum + parseInt(n), 0);
+    let delimiter = /,|\n/;
+    let nums = numbers;
+    if (numbers.startsWith('//')) {
+        const match = numbers.match(/^\/\/(.)\n/);
+        if (match) {
+            delimiter = new RegExp(`[${match[1]}\n]`);
+            nums = numbers.slice(4);
+        }
+    }
+    return nums
+        .split(delimiter)
+        .reduce((sum: number, n: string) => sum + parseInt(n, 10), 0);
 }; 
