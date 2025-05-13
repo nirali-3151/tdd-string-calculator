@@ -7,6 +7,9 @@ describe('String Calculator', () => {
             expect(add('')).toBe(0);
         });
 
-        
+        it('should return the number itself for single number input', () => {
+            expect(add('1')).toBe(1);
+        });
+
     });
 }); 
