@@ -27,8 +27,8 @@ This project implements a string calculator that can add numbers represented as 
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd string-calculator
+git clone https://github.com/nirali-3151/tdd-string-calculator
+cd tdd-string-calculator
 ```
 
 2. Install dependencies:
