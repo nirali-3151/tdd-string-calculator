@@ -29,5 +29,10 @@ describe('String Calculator', () => {
             expect(add('//;\n1;2')).toBe(3);
             expect(add('//#\n2#3#4')).toBe(9);
         });
+
+        it('should throw an exception for negative numbers with all negatives in the message', () => {
+            expect(() => add('1,-2,3')).toThrow('negative numbers not allowed: -2');
+            expect(() => add('-1,-2,3')).toThrow('negative numbers not allowed: -1,-2');
+        });
     });
 }); 
