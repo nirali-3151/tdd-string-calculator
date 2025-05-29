@@ -20,6 +20,10 @@ describe('String Calculator', () => {
             expect(add('4,5,6,7')).toBe(22);
         });
 
+        it('should return the sum of an unknown amount of numbers and exclude characters', () => {
+            expect(() => add('12,rt,34,35,v,3')).toThrow('rt, v is not a valid number');
+        });
+
         it('should handle new lines between numbers', () => {
             expect(add('1\n2,3')).toBe(6);
             expect(add('4\n5\n6')).toBe(15);
@@ -27,7 +31,8 @@ describe('String Calculator', () => {
 
         it('should support custom delimiter', () => {
             expect(add('//;\n1;2')).toBe(3);
-            expect(add('//#\n2#3#4')).toBe(9);
+            
+            expect(add('//#\n2#3#4#5#6')).toBe(20);
         });
 
         it('should throw an exception for negative numbers with all negatives in the message', () => {
